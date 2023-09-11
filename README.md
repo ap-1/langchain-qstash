@@ -146,7 +146,7 @@ export const verify: MiddlewareHandler = async (ctx, next) => {
 };
 ```
 
-Hono.js passes a `ctx` (context) object to each middleware and handler. This isn't directly the same as Cloudflare Workers' `ExecutionContext`—but it does contain the same information. Hono's `ctx` object is nearly equivalent to the request object, environment, and execution context passed to a default Cloudflare Workers `fetch` handler, all combined.
+Hono.js passes a `ctx` (context) object to each middleware and handler. This isn't directly the same as Cloudflare Workers' `ExecutionContext`—but it does contain the same information. Hono's `ctx` object is nearly equivalent to the request object, environment, and execution context passed to a default Cloudflare Workers `fetch` handler, all combined into one object.
 
 We also modify the global `Response` interface to include a custom `locals`. Unlike Express, Hono does not create a `res.locals` object by default. We'll use this to pass the query to the handler later. Next, we access the typed environment variables from earlier to construct our receiver.
 
